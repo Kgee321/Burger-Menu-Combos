@@ -11,7 +11,7 @@ options = input("Enter what you would like to do with your combos: \n"
                 "Enter Search to search combos \n"
                 "Enter Delete to delete combos \n"
                 "Enter Print to print combos \n"
-                "Enter Exit to leave").lower()
+                "Enter Exit to leave \n")
 
 # If user want to add combo
 if options == "add":
