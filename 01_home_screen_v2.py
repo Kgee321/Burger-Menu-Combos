@@ -1,7 +1,8 @@
-""" This code is adding onto 01_home_screen_v1. It will put the code in a loop for when wrong
+""" Component 1 -- Home Screen version 2
+This code is adding onto 01_home_screen_v1. It will put the code in a loop for when wrong
 input entered as well as add .lower() so the capital answers to do matter
-Katelyn Gee
-27/03/2023
+Written by Katelyn Gee
+Created on the 27/03/2023
 """
 
 # Loop repeats when wrong input entered

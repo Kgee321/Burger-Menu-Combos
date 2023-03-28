@@ -1,8 +1,9 @@
-""" This code is changing 01_home_screen_v2. Instead of input statements used, Easygui button box
+""" Component 1 -- Home Screen version 3
+This code is changing 01_home_screen_v2. Instead of input statements used, Easygui button box
 is used to make code shorter and nicer for the user to use. A loop is also no longer needed as
 there is no way the user can enter the wrong input.
-Katelyn Gee
-27/03/2023
+Written by Katelyn Gee
+Created on the 27/03/2023
 """
 
 import easygui

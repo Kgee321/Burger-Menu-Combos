@@ -1,6 +1,7 @@
-""" This code is the same as 01_home_screen_v3 but a loop is around the code for testing.
-Katelyn Gee
-28/03/2023
+""" Component 1 -- Home screen version 4
+This code is the same as 01_home_screen_v3 but a loop is around the code for testing.
+Written by Katelyn Gee
+Create on 28/03/2023
 """
 
 import easygui

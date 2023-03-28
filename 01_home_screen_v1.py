@@ -1,8 +1,9 @@
-""" This code is the beginning of creating burger combos home screen. This code will not
+""" Component 1 -- Home Screen version 1
+This code is the beginning of creating burger combos home screen. This code will not
 use easygui to begin with and print statements will be used and deleted later to
 test if code is working.
-Katelyn Gee
-27/03/2023
+Written by Katelyn Gee
+Created on 27/03/2023
 """
 
 # Asking user what they want to do with the combos
