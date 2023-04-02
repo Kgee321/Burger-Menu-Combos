@@ -1,4 +1,4 @@
-""" Component 2 -- Add Combo Version 2
+""" Component 2 -- Add Combo Version 2 (Trial 1)
 Converting the print function to easygui
 Adding the values the user inputted into a dictionary
 At end of code, outputing the values and checking
