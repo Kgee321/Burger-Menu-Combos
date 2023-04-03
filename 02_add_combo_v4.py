@@ -20,6 +20,7 @@ while True:
     count = 0
     combo_items = {}
     new_combo = {}
+    message = ""
 
     while True:
         # Ask for the name of the combo
@@ -91,6 +92,3 @@ while True:
     # User enters no
     elif answer == "No":
         easygui.msgbox("Sorry, lets try again then!", "New Combo adding restarting")
-
-
-
