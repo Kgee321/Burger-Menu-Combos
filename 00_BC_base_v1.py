@@ -5,7 +5,6 @@ Adding each component as they are created
 Not much editing done to the code
 Written by Katelyn Gee
 Created on the 28/03/2023
-ASK ABOUT DICTIONARY INSIDE LIST OR DICTIONARY INSIDE DICTIONARY BETTER?
 """
 
 import easygui
