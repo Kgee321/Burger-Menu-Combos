@@ -39,5 +39,7 @@ while True:
     # Otherwise -- price is correct and program continues
     price = price_checker(50, 1, "Please enter the price of item: ")
 
+    new_price = f"{price:.2f}"
+
     # Price outputted
-    easygui.msgbox(f"${price:.2f} (2dp) is the price", "Price")
+    easygui.msgbox(f"${new_price} (2dp) is the price", "Price")
