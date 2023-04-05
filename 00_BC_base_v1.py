@@ -3,6 +3,8 @@ Welcome screen and message created here
 Pre-combos added to a dictionary inside a dictionary here
 Adding each component as they are created
 Not much editing done to the code
+Adding code to add function so user cannot
+make a new combo with the same name
 Written by Katelyn Gee
 Created on the 28/03/2023
 """
@@ -68,6 +70,12 @@ def add():
 
         # Asking for combo name
         combo_name = char_boundary(10, 1, "Please enter combo name: ", "Combo name")
+        combo_name = combo_name.title()
+
+        # Finding if combo name already used
+        if combo_name in combos.keys():
+            easygui.msgbox("Name already a combo. Please choose a new name.")
+            continue
 
         # Loop so 3 items can be added to combo
         while count != 3:
@@ -132,14 +140,14 @@ combos = {
     "Value":
         {"Beef Burger": 5.69,
          "Fries": 1,
-         "Fizzy drink": 1},
+         "Fizzy Drink": 1},
     "Cheezy":
         {"Cheeseburger": 6.69,
          "Fries": 1,
-         "Fizzy drink": 1},
+         "Fizzy Drink": 1},
     "Super":
         {"Cheeseburger": 6.69,
-         "Large fries": 2,
+         "Large Fries": 2,
          "Smoothie": 2}
 }
 
