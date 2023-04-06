@@ -4,7 +4,9 @@ Pre-combos added to a dictionary inside a dictionary here
 Adding each component as they are created
 Not much editing done to the code
 Adding code to add function so user cannot
-make a new combo with the same name
+make a new combo with the same name.
+When input code entered, changing it to use
+the char_boundary function.
 Written by Katelyn Gee
 Created on the 28/03/2023
 """
