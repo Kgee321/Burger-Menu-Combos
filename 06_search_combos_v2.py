@@ -1,7 +1,5 @@
 """ Component 4 -- Search combos (version 2)
-Added in the option for the user to search for
-items in the combo and all results with that item
-are outputted.
+Adding
 Because I used a for loop, code can find the start
 of combo name. For example,
 'val' recognised as value combo.
@@ -37,18 +35,17 @@ for name_com, item_com in combos.items():
     if searching in name_com:
         print(f"The combo named {name_com} is {item_com}")
 
-    # Loop to access items in combo
-    for item_name in item_com.keys():
-
-        # If search is a combo item name
-        if searching in item_name:
-            print(f"The {item_name} at a price of ${item_com[item_name]} is in the combo named {name_com}")
+    # If search is a combo item name
+    elif searching in item_com.keys():
+        print(f"The {searching} at a price of ${item_com[searching]} is in the combo named {name_com}")
 
     # If search not in dictionary
     else:
-        counting += 1 # FIX
+        counting += 1
 
 # Warning message if search not in combos
 if counting == len(combos):
     print("Sorry, input not in the combos")
 
+""" Ask if user want to search again or exit
+back to home screen."""
