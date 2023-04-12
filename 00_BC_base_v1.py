@@ -7,7 +7,7 @@ Adding code to add function so user cannot
 make a new combo with the same name.
 When input code entered, changing it to use
 the char_boundary function.
-Added components 1, 2, 3, and 4.
+Added components 1, 2, and 3.
 Written by Katelyn Gee
 Created on the 28/03/2023
 """
@@ -123,61 +123,9 @@ def add():
             easygui.msgbox("Sorry, lets try again then!", "New Combo adding restarting")
 
 
-# Function for joining values
-def joining_values(lists, join_string):
-
-    connected_output = ""
-
-    # Loop to join list values
-    for _ in lists:
-        connected_output = join_string.join(lists)
-
-    return connected_output
-
-
 # Searching the combos functions
-def search(action):
-    # Values
-    value = True
-    search_items = []
-    search_name = []
-
-    while True:
-        # User enters search
-        searching = char_boundary(20, 0, f"Enter the combo or combo item you want to {action}: ",
-                                  f"{action} combos").title()
-
-        # Loop to access all dictionary items
-        for name_com, item_com in combos.items():
-
-            # If search is in the combo name
-            if searching in name_com:
-
-                # Joining list together
-                items_print = joining_values(item_com.keys(), ", ")
-
-                # printing results
-                search_name.append([name_com, items_print])
-                value = False
-
-            # Loop to access items in combo
-            for item_name in item_com.keys():
-
-                # If search is a combo item name
-                if searching in item_name:
-                    search_items.append([item_name, item_com[item_name], name_com])
-                    value = False
-
-        # Warning message if search not in combos
-        if value:
-            easygui.msgbox(f"Sorry, input {searching} is not in the combos",
-                           "Search not in Combos")
-            return True
-
-        # Printing all search results
-        else:
-
-            return [searching, search_items, search_name]
+def search():
+    pass
 
 
 # Delete combos functions
@@ -225,38 +173,7 @@ while True:
 
     # If user wants to find a combo
     elif options == "Search":
-        while True:
-            # Search function
-            answer = search("Search")
-            output_search = ""
-
-            # If search not in combos
-            if answer:
-                pass
-
-            # If search results in combos
-            else:
-
-                # Items that are in search results
-                for i in range(len(answer[1])):
-
-                    output_search += f"{answer[1][i][0]} which costs ${answer[1][i][1]} and is in combo "\
-                                     f"{answer[1][i][2]} \n"
-
-                # Combo names that are in search results
-                for a in range(len(answer[2])):
-                    output_search += f"The combo name {answer[2][a][0]} which contains {answer[2][a][1]}.\n"
-
-                # Output search results
-                easygui.msgbox(f"The search '{answer[0]}' is in: \n{output_search}", "Combo Search Results")
-
-            # User wants to search again or leave to home screen
-            again = easygui.buttonbox(f"Do you want to search again or return to home screen?",
-                                      "Again or Home Screen", choices=["Again", "Home Screen"])
-
-            # If wanting to return home
-            if again == "Home Screen":
-                break
+        search()
 
     # If user wants to delete a combo
     elif options == "Delete":
