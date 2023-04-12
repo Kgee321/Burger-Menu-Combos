@@ -1,8 +1,11 @@
 """ Component 4 -- Search combos (version 2)
-Adding
-Because I used a for loop, code can find the start
+Adding a for loop so code can find the start
 of combo name. For example,
 'val' recognised as value combo.
+Using a count variable so code will output
+if search results not in dictionary
+Have to enter full name of combo item for
+it to be recognised.
 Written by Katelyn Gee
 Created on the 05/04/2023
 """
@@ -47,5 +50,3 @@ for name_com, item_com in combos.items():
 if counting == len(combos):
     print("Sorry, input not in the combos")
 
-""" Ask if user want to search again or exit
-back to home screen."""
