@@ -25,10 +25,12 @@ combos = {
          "Smoothie": 2}
 }
 
-value = True
-search_items = []
-
 while True:
+
+    # Values setting
+    value = True
+    search_items = []
+
     # User enters search
     searching = easygui.enterbox("What combo or combo item are you looking for? ").title()
 
