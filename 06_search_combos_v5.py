@@ -1,4 +1,4 @@
-""" Component 4 -- Search combos (version 4)
+""" Component 4 -- Search combos (version 5)
 Converting code into a basic function
 also creating a recyclable joinning function that
 can be used in other parts of future and
@@ -22,11 +22,12 @@ def joining_values(lists, join_string):
 
 
 def search():
-    # Values
-    value = True
-    search_items = []
 
     while True:
+        # Values
+        value = True
+        search_items = []
+
         # User enters search
         searching = easygui.enterbox("What combo or combo item are you looking for? ", "Searching Combos").title()
 
