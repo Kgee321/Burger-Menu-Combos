@@ -1,5 +1,6 @@
 """ Base Component -- Version 1
 Adding components 4, 5 and 6
+Some function names changed
 Editing any mistakes
 Adding in functions anywhere they can go
 Written by Katelyn Gee
@@ -37,7 +38,7 @@ def price_checker(high, low, comment, box_name):
 def char_boundary(upper, lower, question, box_name):
     while True:
         # Ask for the name of the combo
-        asking = easygui.enterbox(question, box_name)
+        asking = easygui.enterbox(question, box_name).title()
 
         # Upper string boundary
         if len(asking) > upper:
@@ -94,16 +95,10 @@ def add():
         # Adding items to combo dictionary with combo name
         new_combo[combo_name] = combo_items
 
-        # Formatting the dictionary
-        for key, value in new_combo.items():
-            message = f"{key}:\n"
-
-            # Formatting dictionary inside dictionary
-            for key2, value2 in value.items():
-                message += f"{key2}: ${value2}, "
+        combo_message = output_menu("-", new_combo)
 
         # Outputting new combo and user clicks yes/no if correct/wrong combo
-        answer1 = easygui.buttonbox(f"{message} \n\n Is this Combo Correct?", "New Combo Checking",
+        answer1 = easygui.buttonbox(f"{combo_message} \nIs this Combo Correct?", "New Combo Checking",
                                     choices=["Yes", "No"])
 
         # User enters yes
@@ -202,14 +197,25 @@ def search_delete(items_or_not, action, extra_message):
             return delete_items
 
 
-# Delete combos functions
-def delete():
-    pass
+# Function for connecting dictionaries to be printable
+def output_menu(pattern, dictionary):
 
+    message = ""
 
-# printing the menu function
-def printing():
-    pass
+    # loop to print dictionary
+    for name_of_combo, combo_items_price in dictionary.items():
+
+        # Combo name printed
+        message += f"\n{name_of_combo}\n"
+        message += f"{pattern}" * (len(name_of_combo) * 2) + f"\n"
+
+        # Loop to print dictionary inside the dictionary
+        for item_in_combo, price_of_item in combo_items_price.items():
+
+            # Combo item and its price printed
+            message += f"{pattern} {item_in_combo}: ${price_of_item} \n"
+
+    return message
 
 
 # Pre Stored combos dictionary
@@ -266,7 +272,8 @@ while True:
 
     # If user want to print combos
     elif options == "Print":
-        printing()
+        menu = output_menu("-", combos)
+        easygui.msgbox(menu, "Printing Menu")
 
     # If user want to leave code
     elif options == "Exit":
