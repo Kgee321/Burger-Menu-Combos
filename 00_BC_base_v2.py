@@ -64,7 +64,6 @@ def add():
         count = 0
         combo_items = {}
         new_combo = {}
-        message = ""
 
         # Asking for combo name
         combo_name = char_boundary(10, 1, "Please enter combo name: ", "Combo name")
