@@ -1,4 +1,4 @@
-""" Base Component -- Version 1
+""" Base Component -- Version 1.
 Adding changes my user feedback
 recommended me plus other changes
 Written by Katelyn Gee
@@ -19,7 +19,8 @@ def price_checker(high, low, comment, box_name):
 
             # If item price out of boundary error
             if low > number or number > high:
-                easygui.msgbox(f"Please enter a number between {low} and {high}. Try again",
+                easygui.msgbox("Please enter a number between "
+                               f"{low} and {high}. Try again",
                                "Out of Boundary")
 
             # Loop ends if input correct
@@ -29,7 +30,8 @@ def price_checker(high, low, comment, box_name):
         except ValueError:
 
             # When wrong input entered, question repeated
-            easygui.msgbox("Input was not a float! Please enter a number", "Wrong Input Type")
+            easygui.msgbox("Input was not a float! Please enter a number",
+                           "Wrong Input Type")
 
 
 # Function for finding
@@ -40,11 +42,13 @@ def char_boundary(upper, lower, question, box_name):
 
         # Upper string boundary
         if len(asking) > upper:
-            easygui.msgbox(f"Wrong Input. Please enter less than {upper} letters", "Too Many Letters")
+            easygui.msgbox("Wrong Input. Please enter less than "
+                           f"{upper} letters", "Too Many Letters")
 
         # Lower string boundary
         elif len(asking) < (lower + 1):
-            easygui.msgbox(f"Wrong Input. Please more than {lower} letters", "Not Enough Letters")
+            easygui.msgbox("Wrong Input. Please more than "
+                           f"{lower} letters", "Not Enough Letters")
 
         # Input correct
         else:
@@ -64,7 +68,8 @@ def add():
         new_combo = {}
 
         # Asking for combo name
-        combo_name = char_boundary(10, 1, "Please enter combo name: ", "Combo name")
+        combo_name = char_boundary(10, 1, "Please enter combo name: ",
+                                   "Combo name")
         combo_name = combo_name.title()
 
         # Finding if combo name already used
@@ -79,11 +84,12 @@ def add():
             count += 1
 
             # Asking for combo name
-            item = char_boundary(20, 1, f"Please enter the name of item {count}: ", f"Item {count}")
+            item = char_boundary(20, 1, "Please enter the name of item "
+                                        f"{count}: ", f"Item {count}")
 
             # Asking user to enter the price of that item
-            price = price_checker(50, 1, f"Please enter the price of item {count}: ",
-                                  f"Item {count}")
+            price = price_checker(50, 1, "Please enter the price of "
+                                         f"item {count}: ", f"Item {count}")
             price = f"{price:.2f}"
 
             # Adding item and price to dictionary
@@ -95,18 +101,22 @@ def add():
         combo_message = output_menu("-", new_combo)
 
         # Outputting new combo and user clicks yes/no if correct/wrong combo
-        answer1 = easygui.buttonbox(f"{combo_message} \nIs this Combo Correct?", "New Combo Checking",
+        answer1 = easygui.buttonbox(f"{combo_message} \n"
+                                    f"Is this Combo Correct?",
+                                    "New Combo Checking",
                                     choices=["Yes", "No"])
 
         # User enters yes
         if answer1 == "Yes":
-            easygui.msgbox("Great! This New Combo was added", "New Combo Added")
+            easygui.msgbox("Great! This New Combo was added",
+                           "New Combo Added")
             combos.update(new_combo)
             break
 
         # User enters no
         elif answer1 == "No":
-            easygui.msgbox("Sorry, lets try again then!", "New Combo adding restarting")
+            easygui.msgbox("Sorry, lets try again then!",
+                           "New Combo adding restarting")
 
 
 # Joining lists together
@@ -132,7 +142,8 @@ def search_delete(items_or_not, action, extra_message):
         search_items = []
 
         # User enters search
-        searching = char_boundary(20, 0, f"Enter what you want to {action} in combos:",
+        searching = char_boundary(20, 0, "Enter what you want to "
+                                         f"{action} in combos:",
                                   f"{action.title()} Combos").title()
 
         # Loop to access all dictionary items
@@ -145,7 +156,8 @@ def search_delete(items_or_not, action, extra_message):
                 items_print = joining_values(item_com.keys(), ", ")
 
                 # Printing results
-                search_items.append(f"The combo named {name_com} contains {items_print}")
+                search_items.append(f"The combo named {name_com} "
+                                    f"contains {items_print}")
                 delete_items.append(name_com)
                 value = False
 
@@ -157,13 +169,15 @@ def search_delete(items_or_not, action, extra_message):
 
                     # If search is a combo item name
                     if searching in item_name:
-                        search_items.append(f"{item_name} at a price of ${item_com[item_name]} is "
+                        search_items.append(f"{item_name} at a price of "
+                                            f"${item_com[item_name]} is "
                                             f"in the combo named {name_com}")
                         value = False
 
         # Warning message if search not in combos
         if value:
-            easygui.msgbox(f"Sorry, input {searching} is not in the combos", "Search not in Combos")
+            easygui.msgbox(f"Sorry, input {searching} is not in the combos",
+                           "Search not in Combos")
 
         # Printing all search results
         else:
@@ -171,23 +185,31 @@ def search_delete(items_or_not, action, extra_message):
             search_total = joining_values(search_items, "\n")
 
             # Results output and ask if this is correct to user
-            correct = easygui.buttonbox(f"Combos containing '{searching}' are: \n{search_total}\n"
-                                        f"{extra_message}", "Combo Search Results",
+            correct = easygui.buttonbox(f"Combos containing '{searching}' "
+                                        f"are: \n{search_total}\n"
+                                        f"{extra_message}",
+                                        "Combo Search Results",
                                         choices=["Correct", "Incorrect"])
 
             # if incorrect, component/function restarts
             if correct == "Incorrect":
-                easygui.msgbox("Sorry, lets try again! It may help if you refine your search "
-                               "by adding as much letters as possible", f"{action} combos again")
+                easygui.msgbox("Sorry, lets try again! It may help "
+                               "if you refine your search "
+                               "by adding as much letters as possible",
+                               f"{action} combos again")
                 delete_items.pop(-1)
                 continue
 
             # Combos found correct
-            easygui.msgbox(f"Great! {action.title()} combo items has been completed!", f"{action} Combos Completed")
+            easygui.msgbox(f"Great! {action.title()} combo "
+                           "items has been completed!",
+                           f"{action} Combos Completed")
 
         # Asking if user wants to search again
-        play_again = easygui.buttonbox(f"Do you want to {action} again or return to home screen?",
-                                       "Search options", choices=["Again", "Home Screen"])
+        play_again = easygui.buttonbox(f"Do you want to {action} again or "
+                                       f"return to home screen?",
+                                       "Search options",
+                                       choices=["Again", "Home Screen"])
 
         # if wanting to return home
         if play_again == "Home Screen":
@@ -204,7 +226,7 @@ def output_menu(pattern, dictionary):
 
         # Combo name printed
         message += f"\n{name_of_combo}\n"
-        message += f"{pattern}" * (len(name_of_combo) * 2) + f"\n"
+        message += f"{pattern}" * (len(name_of_combo) * 2) + "\n"
 
         # Loop to print dictionary inside the dictionary
         for item_in_combo, price_of_item in combo_items_price.items():
@@ -233,9 +255,12 @@ combos = {
 
 # Welcome Screen and instructions
 easygui.msgbox("Welcome to Jim's Takeaways! \n"
-               "You have the option to add combos, search combos, delete combos, "
-               "or show the combo's menu in this program. Please select what you would "
-               "like to do on the next page. A recommendation for a place to start would "
+               "You have the option to add combos, "
+               "search combos, delete combos, "
+               "or show the combo's menu in this program. "
+               "Please select what you would "
+               "like to do on the next page. A recommendation "
+               "for a place to start would "
                "be to read the menu (show menu button)."
                "\nEnjoy!", "Welcome and Instructions")
 
@@ -243,8 +268,10 @@ easygui.msgbox("Welcome to Jim's Takeaways! \n"
 while True:
 
     # Asking user what they want to do with the combos
-    options = easygui.buttonbox("Enter what you would like to do with your combos: \n",
-                                "Home Screen", choices=["Add", "Search", "Delete", "Show Menu", "Exit"])
+    options = easygui.buttonbox("Enter what you would like to do "
+                                "with your combos: \n", "Home Screen",
+                                choices=["Add", "Search", "Delete",
+                                         "Show Menu", "Exit"])
 
     # If user want to add combo
     if options == "Add":
@@ -258,7 +285,8 @@ while True:
     elif options == "Delete":
 
         # Calling on function for deleting dictionary
-        answer = search_delete(False, "delete", "Do you want to delete these combos?")
+        answer = search_delete(False, "delete",
+                               "Do you want to delete these combos?")
 
         # Checking if there are items in the list
         if len(answer) > 0:
@@ -278,5 +306,6 @@ while True:
     elif options == "Exit":
 
         # Goodbye message outputted and code ends
-        easygui.msgbox("Goodbye! Thanks for using Jim's Takeaways", "Leaving Screen")
+        easygui.msgbox("Goodbye! Thanks for using Jim's Takeaways",
+                       "Leaving Screen")
         break
